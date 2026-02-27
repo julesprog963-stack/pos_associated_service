@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_associated_service.AssociatedServicePopup">
+        <div class="popup popup-text popup-med">
+            <div class="modal-header">
+                <h4 class="modal-title title drag-handle">
+                    <t t-esc="props.title"/>
+                </h4>
+            </div>
+            <main class="modal-body text-start">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Cantidad</label>
+                    <input
+                        class="form-control form-control-lg"
+                        type="number"
+                        min="1"
+                        step="1"
+                        t-model="state.quantity"
+                        inputmode="numeric"
+                    />
+                </div>
+                <div class="form-check mb-2">
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="associated_service_toggle"
+                        t-model="state.includeService"
+                    />
+                    <label class="form-check-label" for="associated_service_toggle">
+                        Incluir servicio: <t t-esc="props.serviceName"/>
+                    </label>
+                </div>
+            </main>
+            <footer class="footer modal-footer">
+                <div class="button confirm btn btn-lg btn-primary" t-on-click="confirm">
+                    <t t-esc="props.confirmText"/>
+                </div>
+                <div class="button cancel btn btn-lg btn-secondary" t-on-click="cancel">
+                    <t t-esc="props.cancelText"/>
+                </div>
+            </footer>
+        </div>
+    </t>
+</templates>
